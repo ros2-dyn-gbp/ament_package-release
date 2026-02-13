@@ -2,70 +2,15 @@
 Changelog for package ament_package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.16.5 (2026-01-21)
+0.14.2 (2026-02-13)
 -------------------
-* fix setuptools deprecations (`#156 <https://github.com/ament/ament_package/issues/156>`_) (`#159 <https://github.com/ament/ament_package/issues/159>`_)
-  (cherry picked from commit 7b5dea841784a511e275ac0d12a8a4036d943838)
-  Co-authored-by: mosfet80 <10235105+mosfet80@users.noreply.github.com>
-  Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
+* fix setuptools deprecations (`#156 <https://github.com/ament/ament_package/issues/156>`_) (`#160 <https://github.com/ament/ament_package/issues/160>`_)
 * Contributors: mergify[bot]
 
-0.16.4 (2025-04-02)
+0.14.1 (2025-05-21)
 -------------------
-* Simplify removing leading and trailing separators (`#152 <https://github.com/ament/ament_package/issues/152>`_) (`#153 <https://github.com/ament/ament_package/issues/153>`_)
-  Previously, we checked if the leading or trailing character was a colon
-  and then used a wildcard to remove it.
-  It is simpler to just remove a leading or trailing colon. This has the
-  added benefit of only using shell built-in functions.
-  (cherry picked from commit 9b09d9471f8bf77d5c847a6cd973da79d18d2e11)
-  Co-authored-by: Rob Woolley <rob.woolley@windriver.com>
-* Always consider .dsv files, even when no shell specific script exists (`#147 <https://github.com/ament/ament_package/issues/147>`_) (`#151 <https://github.com/ament/ament_package/issues/151>`_)
-  Copy of https://github.com/colcon/colcon-core/pull/244/commits/3697164b248d578ec15e9f0d369d005cf1d9894a
-  (cherry picked from commit 01592eb7c227ec12304635e530984d29055463d7)
-  Co-authored-by: Addisu Z. Taddese <addisuzt@intrinsic.ai>
-* Remove CODEOWNERS and mirror-rolling-to-master. (`#149 <https://github.com/ament/ament_package/issues/149>`_) (`#150 <https://github.com/ament/ament_package/issues/150>`_)
-  They are both outdated and both no longer serving their
-  intended purpose.
-  (cherry picked from commit 5090b28ef9d02fffc41cc1cd04883e3ac2c8f4a6)
-  Co-authored-by: Chris Lalancette <clalancette@gmail.com>
+* Simplify removing leading and trailing separators (`#152 <https://github.com/ament/ament_package/issues/152>`_) (`#154 <https://github.com/ament/ament_package/issues/154>`_)
 * Contributors: mergify[bot]
-
-0.16.3 (2024-01-24)
--------------------
-* Migrate from legacy importlib-resources (`#143 <https://github.com/ament/ament_package/issues/143>`_)
-* Contributors: Isabel Paredes
-
-0.16.2 (2023-05-12)
--------------------
-* Add setuptools dependency back in. (`#141 <https://github.com/ament/ament_package/issues/141>`_)
-* Contributors: Chris Lalancette
-
-0.16.1 (2023-05-11)
--------------------
-* Make python dependencies exec_depend. (`#140 <https://github.com/ament/ament_package/issues/140>`_)
-* Contributors: Chris Lalancette
-
-0.16.0 (2023-04-27)
--------------------
-
-0.15.3 (2023-04-11)
--------------------
-* Add support for comment lines in dsv files (`#139 <https://github.com/ament/ament_package/issues/139>`_)
-* Contributors: Scott K Logan
-
-0.15.2 (2023-02-14)
--------------------
-* [rolling] Update maintainers - 2022-11-07 (`#138 <https://github.com/ament/ament_package/issues/138>`_)
-* Contributors: Audrow Nash
-
-0.15.1 (2022-09-13)
--------------------
-* Mirror rolling to master
-* Remove unused isolated prefix level templates (`#133 <https://github.com/ament/ament_package/issues/133>`_)
-* Contributors: Audrow Nash, Shane Loretz
-
-0.15.0 (2022-04-29)
--------------------
 
 0.14.0 (2022-01-18)
 -------------------
