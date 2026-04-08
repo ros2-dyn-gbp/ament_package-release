@@ -12,26 +12,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from importlib import resources
 import os
 import re
-
-try:
-    import importlib.resources as importlib_resources
-except ModuleNotFoundError:
-    import importlib_resources
 
 IS_WINDOWS = os.name == 'nt'
 
 
+def _get_path(template, name):
+    return resources.files(template).joinpath(name)
+
+
 def get_environment_hook_template_path(name):
-    with importlib_resources.path('ament_package.template.environment_hook', name) as path:
-        return str(path)
+    return _get_path('ament_package.template.environment_hook', name)
 
 
 def get_package_level_template_names(all_platforms=False):
     names = ['local_setup.%s.in' % ext for ext in [
         'bash',
         'bat',
+        'fish',
         'sh',
         'zsh',
     ]]
@@ -41,8 +41,7 @@ def get_package_level_template_names(all_platforms=False):
 
 
 def get_package_level_template_path(name):
-    with importlib_resources.path('ament_package.template.package_level', name) as path:
-        return str(path)
+    return _get_path('ament_package.template.package_level', name)
 
 
 def get_prefix_level_template_names(*, all_platforms=False):
@@ -54,6 +53,7 @@ def get_prefix_level_template_names(*, all_platforms=False):
     ]
     names = ['local_setup.%s' % ext for ext in extensions] + \
         ['setup.%s' % ext for ext in extensions] + \
+        ['local_setup.fish.in', 'setup.fish'] + \
         ['_local_setup_util.py']
     if not all_platforms:
         names = [name for name in names if _is_platform_specific_extension(name)]
@@ -61,28 +61,7 @@ def get_prefix_level_template_names(*, all_platforms=False):
 
 
 def get_prefix_level_template_path(name):
-    with importlib_resources.path('ament_package.template.prefix_level', name) as path:
-        return str(path)
-
-
-def get_isolated_prefix_level_template_names(*, all_platforms=False):
-    extensions = [
-        'bash',
-        'bat.in',
-        'sh.in',
-        'zsh',
-    ]
-    names = ['local_setup.%s' % ext for ext in extensions] + \
-        ['_order_isolated_packages.py']
-    # + ['setup.%s' % ext for ext in extensions]
-    if not all_platforms:
-        names = [name for name in names if _is_platform_specific_extension(name)]
-    return names
-
-
-def get_isolated_prefix_level_template_path(name):
-    with importlib_resources.path('ament_package.template.isolated_prefix_level', name) as path:
-        return str(path)
+    return _get_path('ament_package.template.prefix_level', name)
 
 
 def configure_file(template_file, environment):
